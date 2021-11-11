@@ -15,7 +15,23 @@ class Connection {
             $this->db = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';charset=utf8', $this->username, $this->password);
         }
         catch(PDOException $e){
-            echo 'Syntax Error : '.$e->getMessage();
+            if($e->getCode() == '2002'){
+                echo "<script>console.log('connexion bdd sur localhost');</script>";
+                $this->host = 'localhost';
+                $this->dbname = 'TP_E-BOUTIQUE';
+                $this->username = 'root';
+                $this->password = 'root';
+
+                try{
+                    $this->db = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';charset=utf8', $this->username, $this->password);
+                }
+                catch(PDOException $e){
+                    echo 'Syntax Error : '.$e->getMessage();
+                }
+            }
+            else{
+                echo 'Syntax Error : '.$e->getMessage();
+            }
         }
     }
 

@@ -72,7 +72,6 @@ class UserManager {
             echo "Désoler votre mot de passe ou email est incorrect.";
             return -1;
         }
-        
     }
 
     public final function findOne($id) {

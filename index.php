@@ -16,24 +16,29 @@
 
       include('View/formulaire.php');
       
-      $donnees = array(
-        'password'=> $_POST['password'],
-        'email'=> $_POST['email'],
-        'firstName' =>$_POST['firstName'],
-        'lastName' =>$_POST['lastName'],
-        'address' =>$_POST['address'],
-        'postalCode' =>$_POST['postalCode'],
-        'city' =>$_POST['city'],
-      );
-      
-      
-      $user = new User(); 
-      $formulaireVide = $user->hydrate($donnees);
-      if(!$formulaireVide){
-        $userManager->create($user);
-      }
+      if(!empty($_POST['email'])){
+        $donnees = array(
+          'password'=> $_POST['password'],
+          'email'=> $_POST['email'],
+          'firstName' =>$_POST['firstName'],
+          'lastName' =>$_POST['lastName'],
+          'address' =>$_POST['address'],
+          'postalCode' =>$_POST['postalCode'],
+          'city' =>$_POST['city'],
+        );
 
-      //$userManager->delete(1)
+        $user = new User(); 
+        $formulaireVide = $user->hydrate($donnees);
+        if(!$formulaireVide){
+          $userManager->create($user);
+        }
+
+        //$userManager->delete(1)
+      }
+      
+      
+      
+      
       
             
     ?>
