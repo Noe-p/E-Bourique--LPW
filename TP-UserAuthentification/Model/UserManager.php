@@ -114,5 +114,8 @@ class UserManager {
         $req = $this->db->prepare("DELETE FROM USERS 
                                     WHERE id='$id'
                                 ");
+
+        $req->execute();
+
     }
 }

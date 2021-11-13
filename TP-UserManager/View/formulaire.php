@@ -14,31 +14,34 @@
 </head>
 
 <body>
-    <div class="sign-card">
-        <header>
-            <h1>Création/Modification d'un User</h1>
-        </header>
-        <hr />
-        <section id="main-section">
-            <form action="index.php" method="POST">
-                <label>Mail</label>
-                <input type="email" name="email" placeholder="Mail.." />
-                <label>Mot de passe</label>
-                <input type="password" name="password" placeholder="Mot de passe..">
-                <label>Nom</label>
-                <input type=" text" name="lastName" placeholder="Nom.." />
-                <label>Prénom</label>
-                <input type="text" name="firstName" placeholder="Prénom.." />
-                <label>Adresse</label>
-                <input type="text" name="address" placeholder="Adresse.." />
-                <label>Code Postal</label>
-                <input type="text" name="postalCode" placeholder="Code Postal.." />
-                <label>Ville</label>
-                <input type="text" name="city" placeholder="Ville.." />
-                <input type="submit" class="submit-btn" value="Créer/Valider"> 
-            </form>
-        </section>
-    </div>
+<section class="createAccount">
+  <div class="form-card">
+    <h2>Création/Modification d'un User :</h2>
+    <form action="index.php" method="POST">
+      <div class="row">
+        <div class="col">
+          <label>Mail</label>
+          <input type="email" name="email" placeholder="Mail.." />
+          <label>Mot de passe</label>
+          <input type="password" name="password" placeholder="Mot de passe..">
+          <label>Nom</label>
+          <input type=" text" name="lastName" placeholder="Nom.." />
+          <label>Prénom</label>
+          <input type="text" name="firstName" placeholder="Prénom.." />
+        </div>
+        <div class="col">
+          <label>Adresse</label>
+          <input type="text" name="address" placeholder="Adresse.." />
+          <label>Code Postal</label>
+          <input type="text" name="postalCode" placeholder="Code Postal.." />
+          <label>Ville</label>
+          <input type="text" name="city" placeholder="Ville.." />
+        </div>
+      </div>
+      <input type="submit" class="submit-btn" value="Créer/Valider"> 
+    </form>
+  </div>
+</section>
 </body>
 
 </html>

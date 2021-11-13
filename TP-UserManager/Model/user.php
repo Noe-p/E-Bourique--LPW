@@ -66,7 +66,7 @@ class User {
   }
 
   public final function getPassword(){
-    return md5($this->password);
+    return sha1($this->password);
   }
 
   public final function getFirstName(){

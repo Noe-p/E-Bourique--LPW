@@ -16,25 +16,28 @@
 
       include('View/formulaire.php');
       
-      if(!empty($_POST['email'])){
-        $donnees = array(
-          'password'=> $_POST['password'],
-          'email'=> $_POST['email'],
-          'firstName' =>$_POST['firstName'],
-          'lastName' =>$_POST['lastName'],
-          'address' =>$_POST['address'],
-          'postalCode' =>$_POST['postalCode'],
-          'city' =>$_POST['city'],
-        );
-
+      if(
+        !empty($_POST['email']) &&
+        !empty($_POST['password']) && 
+        !empty($_POST['lastName']) &&
+        !empty($_POST['firstName']) &&
+        !empty($_POST['address']) &&
+        !empty($_POST['postalCode']) &&
+        !empty($_POST['city'])
+      ){
         $user = new User(); 
-        $formulaireVide = $user->hydrate($donnees);
-        if(!$formulaireVide){
-          $userManager->create($user);
-        }
-
+        $user->hydrate($_POST);
+        $userManager->create($user);
         //$userManager->delete(1)
       }
+      else{
+        echo "Veuillez remplir tous le formulaire";
+      }
+
+        
+        
+
+        
       
       
       

@@ -12,6 +12,7 @@ class userController{
         $this->db = $db1; 
     }
 
+    //Pages : 
     public function login(){
         $page = 'login';
         require('./View/main.php');
@@ -24,6 +25,12 @@ class userController{
         $page = 'userList';
         require('./View/main.php');
     }
+    public function unauthorized(){
+        $page = 'unauthorized'; 
+        require('./View/main.php');
+    }
+
+    //Déconnexion : 
     public function unset(){
         unset($_SESSION['user']);
         $this->home();
@@ -39,15 +46,14 @@ class userController{
             $this->user->setPassword($_POST['password']); 
         }
         $result = $this->userManager->login($this->user);
-        $this->user = $result;
         
         if($result){
             $info = "Connexion réussie";
-            $_SESSION['user'] = $this->user; 
+            $_SESSION['user'] = serialize($result); 
             $page = 'home';
         }
         else{
-            $info = "Indentifiants incorrects.";
+            $error = "Indentifiants incorrects.";
             $page = "login";
         }
         require('./View/main.php');

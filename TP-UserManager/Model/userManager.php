@@ -35,10 +35,11 @@ class UserManager {
                     ':password' => $user->getPassword()
                 )
             );
+
+            echo "Inscription réussie";
         }catch (Exception $e) {
             echo "erreur lors de l'inscription",  $e->getMessage(), "\n";
         }
-        echo "Inscription réussie";
         
 
         //On ajoute l'identifiant unique à sa classe : 
