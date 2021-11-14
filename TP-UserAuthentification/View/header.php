@@ -1,5 +1,15 @@
 <header>
-    <a href="index.php?ctrl=user&action=home"><img src='./View/icons/home.png' alt='home'>Noé PHILIPPE</a>
+    <?php
+        if(isset($_SESSION['user'])){
+            $user = unserialize($_SESSION['user']);
+            $lastName = $user->getLastName();
+            $firstName = $user->getFirstName();
+            echo "<a href='index.php?ctrl=user&action=home'><img src='./View/icons/home.png' alt='home'>$firstName $lastName</a>";
+        }
+        else{
+            echo "<a href='index.php?ctrl=user&action=home'><img src='./View/icons/home.png' alt='home'></a>";
+        }
+    ?>
     <h1>TP Authentification et MVC</h1>
     <?php
         if(isset($_SESSION['user'])){

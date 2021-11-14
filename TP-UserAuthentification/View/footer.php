@@ -1,5 +1,5 @@
 <footer>
-    <p>Licence professionnelle Projet Web et Mobile à Sorbonne Université 2018/2019</p>
+    <p>Licence professionnelle Projet Web et Mobile à Sorbonne Université 2018/2019 - Noé PHILIPPE</p>
 </footer>
 
 <style>
