@@ -14,46 +14,44 @@ class User {
 
   public function hydrate(array $donnees){ 
     foreach($donnees as $key => $value){
-      /*if(empty($value)){
-        echo "$key est vide";
-        return 1;
-      }*/
-      $this->$key=htmlspecialchars($value);
+      if($key == 'password')
+        $this->$key=htmlspecialchars(addslashes(crypt($value,'st')));
+      else
+        $this->$key=htmlspecialchars(addslashes($value));
     }
-    //return 0;
   }
 
 //Setter
   public final function setId($id1){
-    $this->id=$id1;
+    $this->id=htmlspecialchars(addslashes($id1));
   }
 
   public final function setEmail($email1){
-    $this->email=$email1;
+    $this->email=htmlspecialchars(addslashes($email1));
   }
 
   public final function setPassword($password1){
-    $this->password=$password1;
+    $this->password=htmlspecialchars(addslashes(crypt($password1, 'st')));
   }
 
   public final function setFirstName($firstName1){
-    $this->firstName=$firstName1;
+    $this->firstName=htmlspecialchars(addslashes($firstName1));
   }
 
   public final function setLastName($lastName1){
-    $this->lastName=$lastName1;
+    $this->lastName=htmlspecialchars(addslashes($lastName1));
   }
 
   public final function setAdresse($adresse1){
-    $this->adresse=$adresse1;
+    $this->adresse=htmlspecialchars(addslashes($adresse1));
   }
 
   public final function setPostalCode($postalCode1){
-    $this->postalCode=$postalCode1;
+    $this->postalCode=htmlspecialchars(addslashes($postalCode1));
   }
 
   public final function setCity($city1){
-    $this->city=$city1;
+    $this->city=htmlspecialchars(addslashes($city1));
   }
 
 //Getter
@@ -66,7 +64,7 @@ class User {
   }
 
   public final function getPassword(){
-    return sha1($this->password);
+    return $this->password;
   }
 
   public final function getFirstName(){
